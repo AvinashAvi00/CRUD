@@ -13,7 +13,7 @@ exports.createUser = async(req, res) => {
         throw new Error("Name and email are required")
        }
 
-       const userExists = User.findOne({email})
+       const userExists = await User.findOne({email})
 
        if (userExists) {
         throw new Error("User already exists")
